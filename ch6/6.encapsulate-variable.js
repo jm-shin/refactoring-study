@@ -20,3 +20,18 @@ defaultOwner = setDefaultOwner({ firstName: '레베카', lastName: '파슨스' }
 function getDefaultOwner() { return defaultOwner }
 function setDefaultOwner(arg) { defaultOwner = arg; }
 
+/**
+ * 값 캡슐화하기
+ */
+let ownerData = { firstName: '켄트', lastName: '백' };
+export function defaultOwner2() { return new Person(ownerData) }
+export function setDefaultOwner2(arg) { ownerData = arg; }
+
+class Person {
+    constructor(data) {
+        this._lastName = data.lastName;
+        this._firstName = data.firstName;
+    }
+    get lastName() { return this._lastName };
+    get firstName() { return this._firstName };
+}

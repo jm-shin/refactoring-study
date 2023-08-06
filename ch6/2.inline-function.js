@@ -7,18 +7,19 @@
  * 5. 원래 함수(함수 정의)를 삭제한다.
  */
 // case-1
-function moreThanFiveLateDeliveries(aDriver) {
-    return aDriver.numberOfLateDeliveries > 5;
-}
-
 function rating(aDriver) {
     return aDriver.numberOfLateDeliveries > 5 ? 2 : 1;
+}
+
+function moreThanFiveLateDeliveries(aDriver) {
+    return aDriver.numberOfLateDeliveries > 5;
 }
 
 // case-2
 function reportLines(aCustomer) {
     const lines = [];
-    gatherCustomerData(lines, aCustomer);
+    lines.push(['name', aCustomer.name]);
+    lines.push(['location', aCustomer.location]);
     return lines;
 }
 

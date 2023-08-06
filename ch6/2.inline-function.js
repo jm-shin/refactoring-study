@@ -6,11 +6,23 @@
  * 4. 하나씩 교체할 때마다 테스트한다.
  * 5. 원래 함수(함수 정의)를 삭제한다.
  */
-
+// case-1
 function moreThanFiveLateDeliveries(aDriver) {
     return aDriver.numberOfLateDeliveries > 5;
 }
 
 function rating(aDriver) {
     return aDriver.numberOfLateDeliveries > 5 ? 2 : 1;
+}
+
+// case-2
+function reportLines(aCustomer) {
+    const lines = [];
+    gatherCustomerData(lines, aCustomer);
+    return lines;
+}
+
+function gatherCustomerData(out, aCustomer) {
+    out.push(['name', aCustomer.name]);
+    out.push(['location', aCustomer.location]);
 }

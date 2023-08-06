@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jm-shin/refactoring-study/issues"
   },
-  "homepage": "https://github.com/jm-shin/refactoring-study#readme"
+  "homepage": "https://github.com/jm-shin/refactoring-study#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
 }

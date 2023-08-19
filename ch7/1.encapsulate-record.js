@@ -13,6 +13,7 @@
  * 8. 레코드의 필드도 데이터 구조인 중첩 구조라면 레코드 캡슐화하기와 컬렉션 캡슐화하기를 재귀적으로 적용한다.
  */
 
+// 예시1. 간단한 레코드 캡슐화하기
 const organization = {name: '애크미 구스베리', country: 'GB'};
 let result = '';
 // let result += `<h1>${organization.name}</h1>`
@@ -38,3 +39,5 @@ class Organization {
 }
 
 const organization2 = new Organization({ name: '이름', country: '국가코드'});
+
+// 예시2. 중첩된 레코드 캡슐화하기

@@ -11,11 +11,23 @@
  * 7. 새 클래스를 외부로 노출할지 정한다. 노출하려거든 새 클래스에 참조를 값으로 바꾸기를 적용할 지 고민해본다.
  */
 class Person {
-    get name() {return this._name;}
-    set name(arg) {this._name = arg;}
-    get telephoneNumber() { return `(${this.officeAreaCode}) ${this.officeNumber}`;}
-    get officeAreaCode() { return this._officeAreaCode;}
-    set officeAreaCode(arg) { this._officeAreaCode = arg;}
-    get officeNumber() { return this._officeNumber; }
-    set officeNumber(arg) { this._officeNumber = arg; }
+    constructor() {
+        this._telephoneNumber = new TelephoneNumber();
+    }
+    get name() { return this._name; }
+    set name(arg) { this._name = arg; }
+    get telephoneNumber() { return `(${this.officeAreaCode}) ${this.officeNumber}`; }
+    get officeAreaCode() { return this._telephoneNumber.areaCode; }
+    set officeAreaCode(arg) { this._telephoneNumber.areaCode = arg;}
+    get officeNumber() { return this._telephoneNumber.number; }
+    set officeNumber(arg) { this._telephoneNumber.number = arg; }
+    get telephoneNumber() { this._telephoneNumber.toString(); }
+}
+
+class TelephoneNumber {
+    get areaCode() { return this._officeAreaCode;}
+    set areaCode(arg) { this._officeAreaCode = arg;}
+    get number() { return this._officeNumber; }
+    set number(arg) { this._officeNumber = arg; }
+    toString() { return `(${this.areaCode}) ${this.number}`; }
 }

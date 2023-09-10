@@ -12,30 +12,23 @@
 
 // 예시: 중첩 함수를 최상위로 옮기기
 function trackSummary(points) {
-    const totalTime = calculateTime();
-    const totalDistance = calculateDistance();
-    const pace = totalTime / 60 / totalDistance;
-
+    const totalTime = calculateTime()
+    const pace = totalTime / 60 / totalDistance(points)
     return {
         time: totalTime,
-        distance: totalDistance,
-        pace,
+        distance: totalDistance(points),
+        pace: pace,
     }
 }
 
-function calculateDistance() {
-    let result = 0;
-    for (let i = 1; i < points.length; i++) {
-        result += distance(points[i-1], points[i]);
+function totalDistance(points) {
+    let result = 0
+    for (let i = 0; i < points.length; i++) {
+        result += distance(points[i-1], points[i])
     }
-    return result;
+    return result
+
+    function distance(p1, p2) {} // 두 지점의 거리 계산
+    function radians(degrees) {} // 라디안 값으로 변환
+    function calculateTime()  {} // 총 시간 계산
 }
-
-// 두 지점의 거리 계산
-function distance(){};
-
-// 라디안 값으로 변환
-function radius(degrees) {};
-
-// 총 시간 계산
-function calculateTime() {};

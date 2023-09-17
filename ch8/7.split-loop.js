@@ -24,15 +24,28 @@ const people = [
     }
 ]
 
-let youngest = people[0]? people[0].age : Infinity;
-let totalSalary = 0;
-
-for (const p of people) {
-    // if (p.age < youngest) youngest = p.age; // 부수효과가 있는 코드는 한쪽만 남기고 제거
-    totalSalary += p.salary;
+function totalSalary() {
+    let totalSalary = 0;
+    for (const p of people) {
+        totalSalary += p.salary;
+    }
+    return totalSalary;
 }
-// 반복문 복제
-for (const p of people) {
-    if (p.age < youngest) youngest = p.age;
-    // totalSalary += p.salary; // 부수효과가 있는 코드는 한쪽만 남기고 제거
+
+function youngestAge() {
+    let youngest = people[0]? people[0].age : Infinity;
+    for (const p of people) {
+        if (p.age < youngest) youngest = p.age;
+    }
+    return youngest;
+}
+
+// 파이프 라인으로 변경
+function totalSalary() {
+   return people.reduce((total, p) => total + p.salary, 0);
+}
+
+// 알고리즘 교체하기
+function youngestAge() {
+    return Math.min(...people.map(p => p.age));
 }

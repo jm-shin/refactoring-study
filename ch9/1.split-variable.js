@@ -11,14 +11,15 @@
 
 function distanceTravelled(scenario, time) {
     let result;
-    let acc = scenario.primaryForce / scenario.mass; // 가속도(a) = 힘(F) / 질량(m)
+    let primaryAcceleration = scenario.primaryForce / scenario.mass; // 가속도(a) = 힘(F) / 질량(m)
     let primaryTime = Math.min(time, scenario.delay);
-    result = 0.5 * acc * primaryTime; // 전파된 거리
+    result = 0.5 * primaryAcceleration * primaryTime; // 전파된 거리
     let secondaryTime = time - scenario.delay;
     if (secondaryTime > 0) {
-        let primaryVelocity = acc * scenario.delay;
-        acc = (scenario.primaryForce  + scenario.secondaryFore)  / scenario.mass;
-        result += primaryVelocity * secondaryTime + 0.5 * acc * secondaryTime * secondaryTime;
+        let primaryVelocity = primaryAcceleration * scenario.delay;
+        let secondaryAcceleration = (scenario.primaryForce  + scenario.secondaryFore)  / scenario.mass;
+        result += primaryVelocity * secondaryTime +
+            0.5 * secondaryAcceleration * secondaryTime * secondaryTime;
     }
     return result;
 }

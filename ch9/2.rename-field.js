@@ -8,21 +8,15 @@
  * 5. 생성자의 매개변수 중 필드와 이름이 겹치는 게 있다면 함수 선언 바꾸기로 변경한다.
  * 6. 접근자들의 이름도 바꿔준다.
  */
-
-// const organization = {
-//     name: '홍길동',
-//     country: 'CS',
-// };
-
 class Organization {
     constructor(data) {
-        this._name = data.name;
+        this._title = data.title;
         this._country = data.country;
     }
-    get name() { return this._name; }
-    set name(aString) { this._name = aString; }
+    get title() { return this._title; }
+    set title(aString) { this._title = aString; }
     get country() { return this._country; }
     set country(aCountryCode) { this._country = aCountryCode; }
 }
 
-const organization = new Organization({ name: '제임스딘', country: 'USA' });
+const organization = new Organization({ title: '제임스딘', country: 'USA' });
